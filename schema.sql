@@ -1,0 +1,58 @@
+CREATE TABLE Bank (
+    Bank_id NUMBER(5) PRIMARY KEY,
+    Bank_name VARCHAR2(20) NOT NULL,
+    Bank_address VARCHAR2(40) NOT NULL
+);
+
+INSERT INTO Bank VALUES (1224, 'RUAD', 'JDAH-Sudia');
+INSERT INTO Bank VALUES (2225, 'AL ARBE', 'Reiady-Sudia');
+INSERT INTO Bank VALUES (3226, 'RAGHE', 'JAZAN-Sudia');
+
+CREATE TABLE BranchB (
+    Branch_id NUMBER(5) PRIMARY KEY,
+    B_name VARCHAR2(20) NOT NULL,
+    B_address VARCHAR2(20) NOT NULL,
+    Bank_id NUMBER(5)
+);
+
+INSERT INTO BranchB VALUES (1112, 'Alhakeika', 'DMAM-Sudia', 2001);
+INSERT INTO BranchB VALUES (2223, 'Wathik', 'Reiady-Sudia', 1002);
+INSERT INTO BranchB VALUES (3334, 'ZainB', 'ABHA-Sudia', 3004);
+
+CREATE TABLE Customer (
+    custemer_id NUMBER(5) PRIMARY KEY,
+    C_name VARCHAR2(20) NOT NULL,
+    C_address VARCHAR2(40) NOT NULL,
+    C_phone VARCHAR2(20) NOT NULL
+);
+
+INSERT INTO Customer VALUES (1001, 'hesham', 'JAZAN-KSA', '+9960503344567');
+INSERT INTO Customer VALUES (2003, 'mohamad', 'JAZAN-KSA', '+9660531755632');
+INSERT INTO Customer VALUES (4003, 'tamer', 'JAZAN-KSA', '+9660522366478');
+INSERT INTO Customer VALUES (4005, 'ibrahem', 'JAZAN-KSA', '+9660598766453');
+
+CREATE TABLE Loan (
+    L_id NUMBER(5) PRIMARY KEY,
+    L_type VARCHAR2(20) NOT NULL,
+    L_amount FLOAT NOT NULL,
+    Branch_id NUMBER,
+    custemer_id NUMBER(5)
+);
+
+INSERT INTO Loan VALUES (1002, 'Cash', 2500, 1112, 2223);
+INSERT INTO Loan VALUES (2003, 'Cash', 12000, 1113, 11114);
+INSERT INTO Loan VALUES (3004, 'Cash', 15000, 2114, 3334);
+
+CREATE TABLE Account_ (
+    Acc_id NUMBER(5) PRIMARY KEY,
+    Acc_Balance VARCHAR2(20) NOT NULL,
+    Acc_type VARCHAR2(40) NOT NULL,
+    Branch_id NUMBER,
+    custemer_id NUMBER(5)
+);
+
+INSERT INTO Account_ VALUES (1002, '20000', 'aes', 1001, 2002);
+INSERT INTO Account_ VALUES (2003, '50000', 'aes', 2223, 3334);
+INSERT INTO Account_ VALUES (3004, '20000', 'aes', 24445, 1234);
+
+COMMIT;
